@@ -1,6 +1,7 @@
 import { Fragment, Suspense } from "react"
 import { Navigate, Route, Routes } from "react-router-dom";
 import Dashboard from "./pages/dashboard";
+import Layout from "./layout";
 import Attendance from "./pages/attendance";
 
 export const renderRoutes = (routes) => {
@@ -29,13 +30,9 @@ export const renderRoutes = (routes) => {
 }
 
 const routes = [
-  { path: "/", component: () => <Navigate to="/dashboard" />, exact: true },
-  { path: "/dashboard", component: Dashboard, 
-    // layout: Layout 
-    },
-    { path: "/attendance", component: Attendance, 
-    // layout: Layout 
-    },
+    { path: "/", component: () => <Navigate to="/dashboard" />, exact: true },
+    { path: "/dashboard", component: Dashboard, layout: Layout },
+    { path: "/attendance", component: Attendance, layout: Layout },
 ];
 
 export default routes;
